@@ -14,7 +14,10 @@ import { connectDB } from "./lib/db.js";
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173", // Adjust this to your frontend URL
+  credentials: true,
+}));
 app.use(cookieParser());
 app.use(express.json());
 
