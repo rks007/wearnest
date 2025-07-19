@@ -9,7 +9,7 @@ export const addToCart = async (req, res) => {
 
         const user = req.user; //from the protectRoute middleware
 
-        const existingItem = User.cartItems.find(item => item.id === productId);
+        const existingItem = user.cartItems.find(item => item.id === productId);
         if (existingItem) {
             // If the item already exists in the cart, increment the quantity
             existingItem.quantity += 1;
