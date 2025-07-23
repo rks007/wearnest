@@ -24,7 +24,11 @@ function App() {
   }, [])
 
   useEffect(() => {
-    getCartItems();
+    if(user){
+      getCartItems(); // Fetch cart items when user is authenticated
+    }else{
+      return;
+    }
   }, [user])
 
   if(checkingAuth) return <LoadingSpinner/>;
